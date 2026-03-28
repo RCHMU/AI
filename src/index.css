@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "highlight.js/styles/github-dark.min.css";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+
+  /* Scrollbar – dark, subtle */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(63 63 70) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgb(63 63 70);
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgb(82 82 91);
+  }
+}
+
+/* Rehype / hljs inside our panels */
+.chat-markdown pre.hljs {
+  background: rgb(24 24 27 / 0.85) !important;
+  border: 1px solid rgb(63 63 70);
+}
+
+.chat-markdown code.hljs {
+  background: transparent !important;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.35s ease-out both;
+}
